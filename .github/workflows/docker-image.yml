@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag esveo-example-app:$(date +%s)
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/esveo-example-app
+      run: docker push ${{secrets.DOCKER_USER}}/esveo-example-app:$(date +%s)
