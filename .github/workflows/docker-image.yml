@@ -18,9 +18,8 @@ jobs:
       env: 
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        DOCKER_TIMESTAMP: $(date +%s)
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/esveo-example-app:${{DOCKER_TIMESTAMP}}
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/esveo-example-app:latest
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/esveo-example-app:${{DOCKER_TIMESTAMP}}
+      run: docker push ${{secrets.DOCKER_USER}}/esveo-example-app:latest
