@@ -29,5 +29,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: beppobertp/esveo-example-image:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_REGISTRY_NAME }}/esveo-example-image:${{ github.sha }}
         file: Dockerfile
